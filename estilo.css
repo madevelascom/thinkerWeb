@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+  padding-left: 11em;
+  font-family:Arial, Helvetica, sans-serif
+  color: black;
+  background-color: white }
+  
+h1 {
+	font-family:Arial, Helvetica, sans-serif
+    text-align: center;
+}
+ul.navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 2em;
+  left: 1em;
+  width: 9em }
+
+ul.navbar li {
+  background: white;
+  margin: 0.5em 0;
+  padding: 0.3em;
+  border-right: 1em solid black }
+ul.navbar a {
+  text-decoration: none }
+a:link {
+  color: blue }
+a:visited {
+  color: purple }
+address {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: thin dotted }
+
+.button {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-color: #1C140D;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #69D2E7;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #1C140D;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+    -fx-background-color: #F38630;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: #FA6900;
+  -fx-text-fill: #1d1d1d;
+}

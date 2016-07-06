@@ -5,7 +5,8 @@ ob_start();
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Cuestionario</title>
+<link rel="stylesheet" href="estilo.css">
 </head>
 
 <body bgcolor="#99B3FF">
