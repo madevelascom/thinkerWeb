@@ -10,7 +10,7 @@ ob_start();
 </head>
 
 <body bgcolor="#99B3FF">
-<table align="center" width="993" border="0" cellspacing="0" cellpadding="0">
+<table width="993" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
       <td width="975" height="104">
@@ -31,14 +31,22 @@ ob_start();
 	{
 	?>
        <form action="comprobar_cuestionario.php" method="post">
-       <label>Nombre del cuestionario:</label><br>
-       <input type="text" name="nombre_del_cuestionario" /><br><br><br>
-       <label>¿Preguntas aleatorias? 1: Sí, 0: No:</label><br>
-       <input type="text" value="0" name="aleatorias" /><br><br>
-       <label>Número de preguntas aleatorias</label><br>
-       <input type="text" value="0" name="preguntas_aleatorias" /><br><br>
-       
-       <!-- <label>Nombre del cuestionario:</label><br>
+         <p>
+           <label>Nombre del cuestionario:</label>
+           <br>
+           <input type="text" name="nombre_del_cuestionario" /><br><br><br>
+           <label>¿Preguntas aleatorias? 1: Sí, 0: No:</label>
+           <br>
+           <input type="text" value="0" name="aleatorias" /><br>
+         </p>
+         <p><br>
+           <label>Número de preguntas aleatorias</label>
+           <br>
+           <input type="text" value="0" name="preguntas_aleatorias" /><br>
+         </p>
+         <p><br>
+           
+           <!-- <label>Nombre del cuestionario:</label><br>
        <input type="text" name="nombre_del_cuestionario" /><br><br><br>
        <label>Pregunta 1:</label><br>
        <input type="text" name="pregunta1" /><br><br>
@@ -50,8 +58,9 @@ ob_start();
        <input type="text" name="respuesta3" /><br><br>
        <label>Respuesta 4:</label><br>
        <input type="text" name="respuesta4" /><br><br>-->
-
-       <input type="submit" name="enviar" value="Crear cuestionario" />
+           
+           <input type="submit" name="enviar" value="Crear cuestionario" />
+         </p>
        </form>
     <?php
 	}

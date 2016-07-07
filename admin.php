@@ -5,11 +5,12 @@ ob_start();
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Thinker! - Administración</title>
+<link rel="stylesheet" href="estilo.css">
 </head>
 
 <body bgcolor="#99B3FF">
-<table align="center" width="993" border="0" cellspacing="0" cellpadding="0">
+<table width="993" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
       <td width="975" height="104">
@@ -38,8 +39,8 @@ ob_start();
 	{
 	?>
        <br><br><a href="cuestionarios.php">Cuestionarios</a>
-       <br><br><a href="usuarios.php">Usuarios</a>
-       <br><br><a href="estadisticas.php">Estadísticas</a><br><br><br><br>
+       <br>
+       <br>
        <br><br><a href="cerrarsesion.php">Cerrar sesión</a></td>
     <?php
 	}

@@ -19,6 +19,7 @@
 			  $acierto = $check1[0];
 			  
 			  mysql_query("INSERT IGNORE INTO preguntas_respondidas (id_usuario, id_pregunta, id_cuestionario, acierto) VALUES ('".$_POST['id_usuario']."', '".$_POST['id_pregunta']."', '".$_POST['id_cuestionario']."', '".$acierto."')");
+			  mysql_query("UPDATE preguntas_respondidas (id_usuario, id_pregunta, id_cuestionario, acierto) SET acierto = " .$acierto." WHERE id_usuario = ".$_POST['id_usuario']." AND id_pregunta = ".$_POST['id_pregunta'].";");
 		  }
  		  else if ($_POST['id_respuesta'] == 3)
 		  {
@@ -27,6 +28,7 @@
 			  $acierto = $check1[0];
 			  
 			  mysql_query("INSERT IGNORE INTO preguntas_respondidas (id_usuario, id_pregunta, id_cuestionario, acierto) VALUES ('".$_POST['id_usuario']."', '".$_POST['id_pregunta']."', '".$_POST['id_cuestionario']."', '".$acierto."')");
+			  mysql_query("UPDATE preguntas_respondidas (id_usuario, id_pregunta, id_cuestionario, acierto) SET acierto = " .$acierto." WHERE id_usuario = ".$_POST['id_usuario']." AND id_pregunta = ".$_POST['id_pregunta'].";");
 		  }
  		  else if ($_POST['id_respuesta'] == 4)
 		  {
@@ -35,6 +37,7 @@
 			  $acierto = $check1[0];
 			  
 			  mysql_query("INSERT IGNORE INTO preguntas_respondidas (id_usuario, id_pregunta, id_cuestionario, acierto) VALUES ('".$_POST['id_usuario']."', '".$_POST['id_pregunta']."', '".$_POST['id_cuestionario']."', '".$acierto."')");
+			  mysql_query("UPDATE preguntas_respondidas (id_usuario, id_pregunta, id_cuestionario, acierto) SET acierto = " .$acierto." WHERE id_usuario = ".$_POST['id_usuario']." AND id_pregunta = ".$_POST['id_pregunta'].";");
 		  }
 		  
 		  $sql2 = mysql_query("SELECT veces_respondida FROM preguntas WHERE id = '".$_POST['id_pregunta']."'");

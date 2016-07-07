@@ -13,6 +13,15 @@
 	      else
 		      $id_pregunta_cuestionario = 1;
 			  
+		if ($_POST['respuesta1_comprobacion'] != "1")
+			$_POST['respuesta1_comprobacion']=0;
+		if ($_POST['respuesta2_comprobacion'] != "1")
+			$_POST['respuesta2_comprobacion']=0;
+		if ($_POST['respuesta3_comprobacion'] != "1")
+			$_POST['respuesta3_comprobacion']=0;
+		if ($_POST['respuesta4_comprobacion'] != "1")
+			$_POST['respuesta4_comprobacion']=0;
+			  
 		  mysql_query("INSERT INTO preguntas (id_cuestionario, id_pregunta_cuestionario, imagen, pregunta, respuesta1, respuesta1_comprobacion, respuesta2, respuesta2_comprobacion, respuesta3, respuesta3_comprobacion, respuesta4, respuesta4_comprobacion) VALUES ('".$_POST['id_cuestionario']."', '".$id_pregunta_cuestionario."', '".$_POST['imagen']."', '".$_POST['pregunta']."', '".$_POST['respuesta1']."', '".$_POST['respuesta1_comprobacion']."', '".$_POST['respuesta2']."', '".$_POST['respuesta2_comprobacion']."', '".$_POST['respuesta3']."', '".$_POST['respuesta3_comprobacion']."', '".$_POST['respuesta4']."', '".$_POST['respuesta4_comprobacion']."')");
 
 		  header("Location: preguntas.php?id_cuestionario=".$_POST['id_cuestionario']);

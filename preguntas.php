@@ -2,11 +2,12 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Thinker! - Preguntas</title>
+<link rel="stylesheet" href="estilo.css">
 </head>
 
 <body bgcolor="#99B3FF">
-<table align="center" width="993" border="0" cellspacing="0" cellpadding="0">
+<table width="993" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
       <td width="975" height="104">
@@ -16,10 +17,10 @@
       <td height="313" align="center" valign="top"><h1>Panel de administración</h1><br><br>
         <table width="688" border="1" cellspacing="0" cellpadding="0">
           <tbody>
-            <tr>
-              <td width="48">ID</td>
-              <td width="429">Nombre de la pregunta</td>
-              <td colspan="2">Acciones<!-- <a href="ver.php">Ver</a> | <a href="modificar.php">Modificar</a> | <a href="borrar.php">Borrar</a> --></td>
+            <tr align="center" valign="middle" class="cabecera">
+              <td width="48" align="center" valign="middle"><strong>ID</strong></td>
+              <td width="429"><strong>Nombre de la pregunta</strong></td>
+              <td colspan="2" align="center" valign="middle"><strong>Acciones<!-- <a href="ver.php">Ver</a> | <a href="modificar.php">Modificar</a> | <a href="borrar.php">Borrar</a> --></strong></td>
             </tr>
  <?php
     include('conexion.php');
@@ -35,9 +36,9 @@
 		
 		?>
             <tr>
-              <td width="48"><?=$check_pregunta[0]?></td>
+              <td width="48" align="center" valign="middle"><?=$check_pregunta[0]?></td>
               <td width="429"><?=$check_pregunta[5]?></td>
-              <td width="108">
+              <td width="108" align="center" valign="middle">
               
               <form action="modificar_pregunta.php" method="post">
               <input type="hidden" name="id_pregunta" value="<?=$check_pregunta[0]?>" />
@@ -46,7 +47,7 @@
               </form>
 
               </td>
-              <td width="93">
+              <td width="93" align="center" valign="middle">
               
               <form action="borrar_pregunta.php" method="post">
               <input type="hidden" name="id_pregunta" value="<?=$check_pregunta[0]?>" />

@@ -5,7 +5,7 @@ ob_start();
 <html>
 <head>
 <meta charset="utf-8">
-<title>Cuestionario</title>
+<title>Thinker! - Cuestionario</title>
 <link rel="stylesheet" href="estilo.css">
 </head>
 
@@ -14,7 +14,9 @@ ob_start();
     include('conexion.php');
 	mysql_set_charset('utf8');
 	session_start();
-
+	$randoms = mysql_query("SELECT preguntas_aleatorias FROM cuestionarios WHERE id = '".$_GET['id_cuestionario']."'");
+	$fin = mysql_fetch_array($randoms);
+	
 	$sql1 = mysql_query("SELECT id, nombre, aleatorio, preguntas_aleatorias, preguntas_aleatorias_restantes FROM cuestionarios WHERE id = '".$_GET['id_cuestionario']."'");
 	$check1 = mysql_fetch_array($sql1);
 
@@ -32,7 +34,7 @@ ob_start();
 		    respuesta2, respuesta2_comprobacion, 
 		    respuesta3, respuesta3_comprobacion, 
 		    respuesta4, respuesta4_comprobacion 
-		    FROM preguntas WHERE id_cuestionario = '".$check1[0]."' AND id_pregunta_cuestionario NOT IN (SELECT id_pregunta FROM preguntas_respondidas WHERE id_usuario = '".$check_usuario[0]."') ORDER BY RAND()");
+		    FROM preguntas WHERE id_cuestionario = '".$check1[0]."' AND id NOT IN (SELECT id_pregunta FROM preguntas_respondidas WHERE id_usuario = '".$check_usuario[0]."') ORDER BY RAND()");
 			
 			$preguntas_aleatorias_restantes = $check1[4] - 1;
 			mysql_query("UPDATE cuestionarios SET preguntas_aleatorias_restantes = '".$preguntas_aleatorias_restantes."' WHERE id = '".$check1[0]."'");
@@ -54,7 +56,7 @@ ob_start();
 		{
 		    $check2 = mysql_fetch_array($sql2);
 		?>
-<table align="center" width="993" border="0" cellspacing="0" cellpadding="0">
+<table width="993" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
       <td width="975" height="104">
@@ -143,15 +145,16 @@ ob_start();
 			$check_aciertos_array = mysql_fetch_array($sql_aciertos);	
 			
 			mysql_query("INSERT IGNORE INTO ranking (id_usuario, id_cuestionario, total) VALUES ('".$check_usuario[0]."', '".$check1[0]."', '".$check_aciertos1."')");
+			mysql_query("UPDATE ranking (id_usuario, id_cuestionario, total) SET total =".$check_aciertos1."WHERE  id_usuario =  ".$check_usuario[0]." AND id_cuestionario = ".$check1[0].";");
 			
-			$sql_aciertos_final = mysql_query("SELECT id_usuario, total FROM ranking ORDER BY total DESC");
+			$sql_aciertos_final = mysql_query("SELECT id_usuario, total FROM ranking WHERE id_cuestionario = ".$_GET['id_cuestionario']." ORDER BY total DESC");
 			$check_aciertos2 = mysql_num_rows($sql_aciertos_final);	
 				
 			$sql_total = mysql_query("SELECT * FROM preguntas_respondidas WHERE id_usuario = '".$check_usuario[0]."' AND id_cuestionario = '".$check1[0]."'");
 			$check_total = mysql_num_rows($sql_total);
 			
 			?>
-<center><br><br><br>Cuestionario completado.<br>¡Muchas gracias por participar!<br><br><br><br><h2>Tu resultado ha sido:<br><br>Has acertado <?=$check_aciertos1?> de <?=$check_total?></h2><br><br><br><h2>Ranking de puntuación de usuarios</h2><br><br>
+<center><br><br><br>Cuestionario completado.<br>¡Muchas gracias por participar!<br><br><br><br><h2>Tu resultado ha sido:<br><br>Has acertado <?=$check_aciertos1?> de <?=$fin[0]?></h2><br><br><br><h2>Ranking de puntuación de usuarios para este cuestionario</h2><br><br>
               <table width="190" border="1" cellspacing="0" cellpadding="1">
                 <tbody>
                   <tr>
@@ -159,6 +162,7 @@ ob_start();
                     <td width="97">Puntuación</td>
                   </tr>
             <?php
+			mysql_query("UPDATE cuestionarios SET preguntas_aleatorias_restantes = preguntas_aleatorias WHERE id =".$_GET['id_cuestionario']);
 			for ($i = 0; $i < $check_aciertos2; $i++)
 			{
 				$check_aciertos_final = mysql_fetch_array($sql_aciertos_final);

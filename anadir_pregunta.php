@@ -5,11 +5,12 @@ ob_start();
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Thinker! - Nueva pregunta</title>
+<link rel="stylesheet" href="estilo.css">
 </head>
 
 <body bgcolor="#99B3FF">
-<table align="center" width="993" border="0" cellspacing="0" cellpadding="0">
+<table width="993" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
       <td width="975" height="104">
@@ -32,7 +33,8 @@ ob_start();
        <form action="comprobar_anadir_pregunta.php" method="post">
 
        <label>Pregunta:</label><br>
-       <input type="text" name="pregunta" /><br><br>
+       <textarea name="pregunta"></textarea>
+       <br><br>
        <label>Imagen (Escribir URL completa):</label><br>
        <input type="text" name="imagen" /><br><br>
 
